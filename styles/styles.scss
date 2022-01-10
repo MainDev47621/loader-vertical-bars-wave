@@ -1,3 +1,5 @@
+// Variables
+
 $bodyBgColor: #ececec;
 $blockBgColor: #000;
 
@@ -19,7 +21,7 @@ $animationDelay: $animationDuration / $numOfBlocks;
 
 
 
-// animation mixins
+// Animation mixins
 
 @mixin animation($animate...) {
     $max: length($animate);
@@ -69,7 +71,7 @@ $animationDelay: $animationDuration / $numOfBlocks;
 
 
 
-// styling elements
+// Styling elements
 
 * {
     box-sizing: border-box;
