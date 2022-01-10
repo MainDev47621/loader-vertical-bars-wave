@@ -3,7 +3,7 @@
 $bodyBgColor: #ececec;
 $blockBgColor: #000;
 
-$containerWidth: 12rem;
+$containerWidth: 10rem;
 $containerHeight: $containerWidth / 2;
 $boxShadow: -0.25rem -0.25rem 0.3rem rgba(255, 255, 255, 1),
             0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.3),
@@ -14,7 +14,7 @@ $borderRadius: 1rem;
 $numOfBlocks: 10;
 $blockWidth: $containerWidth / ($numOfBlocks + 15);
 $blockHeight: 25%;
-$blockMargin: 0.1rem;
+$blockMargin: 0.08rem;
 
 $animationDuration: 1s;
 $animationDelay: $animationDuration / $numOfBlocks; 
