@@ -1,0 +1,38 @@
+$bodyBgColor: #fff;
+$blockBgColor: #000;
+
+$containerWidth: 10rem;
+$containerHeight: $containerWidth / 6;
+$blockWidth: $containerWidth / 11;
+$blockHeight: 100%;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: $bodyBgColor;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    // background: $containerBgColor;
+    width: $containerWidth;
+    height: $containerHeight;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .block {
+        background: $blockBgColor;
+        width: $blockWidth;
+        height: $blockHeight;
+    }
+}
+
