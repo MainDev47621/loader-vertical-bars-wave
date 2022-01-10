@@ -1,10 +1,75 @@
-$bodyBgColor: #fff;
+$bodyBgColor: #ececec;
 $blockBgColor: #000;
 
-$containerWidth: 10rem;
-$containerHeight: $containerWidth / 6;
-$blockWidth: $containerWidth / 11;
-$blockHeight: 100%;
+$containerWidth: 12rem;
+$containerHeight: $containerWidth / 2;
+$boxShadow: -0.25rem -0.25rem 0.3rem rgba(255, 255, 255, 1),
+            0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.3),
+            inset 0.15rem 0.15rem 0.3rem rgba(0, 0, 0, 0.3),
+            inset -0.1rem -0.15rem 0.3rem rgba(255, 255, 255, 1);
+$borderRadius: 1rem;
+
+$numOfBlocks: 10;
+$blockWidth: $containerWidth / ($numOfBlocks + 15);
+$blockHeight: 25%;
+$blockMargin: 0.1rem;
+
+$animationDuration: 1s;
+$animationDelay: $animationDuration / $numOfBlocks; 
+
+
+
+// animation mixins
+
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@include keyframes(animate) {
+    0% {
+        height: $blockHeight;
+    }
+
+    50% {
+        height: $blockHeight * 2.2;
+    }
+
+    100% {
+        height: $blockHeight;
+    }
+}
+
+
+
+// styling elements
 
 * {
     box-sizing: border-box;
@@ -23,16 +88,20 @@ body {
 
 .container {
     // background: $containerBgColor;
+    border-radius: $borderRadius;
+    box-shadow: $boxShadow;
     width: $containerWidth;
     height: $containerHeight;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 
     .block {
         background: $blockBgColor;
         width: $blockWidth;
         height: $blockHeight;
+        margin: $blockMargin;
+        @include animation('animate #{$animationDuration} infinite');
+        animation-delay: calc(#{$animationDelay} * var(--i));
     }
 }
-
